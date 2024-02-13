@@ -7,9 +7,17 @@ import Register from "./src/pages/RegistrationPage";
 import Home from "./src/pages/HomePage";
 import Welcome from "./src/pages/WelcomePage";
 // import './src/i18n';
+import { useFonts } from 'expo-font';
 const MainStack = createStackNavigator(); // вказує на групу навігаторів
 
 export default () => {
+  const [fontsLoaded] = useFonts({
+    'Roboto': require('./src/assets/font/Roboto-Medium.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <NavigationContainer>
